@@ -2,6 +2,20 @@
 
 This repo contains the supported code and configuration files to reproduce semantic segmentaion results of [Swin Transformer](https://arxiv.org/pdf/2103.14030.pdf). It is based on [mmsegmentaion](https://github.com/open-mmlab/mmsegmentation/tree/v0.11.0).
 
+##Installation Steps:
+1.) git clone https://github.com/kartikwar/Swin-Transformer-Semantic-Segmentation.git
+2.) conda create -n transformer python=3.7
+3.) conda activate transformer
+4.) conda install pytorch==1.6.0 torchvision==0.7.0 cudatoolkit=10.1 -c pytorch
+5.) wget https://download.openmmlab.com/mmcv/dist/cu101/torch1.6.0/mmcv_full-1.3.0-cp37-cp37m-manylinux1_x86_64.whl
+6.) pip install mmcv_full-1.3.0-cp37-cp37m-manylinux1_x86_64.whl
+7.) cd  Swin-Transformer-Semantic-Segmentation
+8.) pip install -r requirements/runtime.txt
+9.) pip install git+https://github.com/rwightman/pytorch-image-models.git
+
+##Steps for inference
+python inference.py
+
 ## Updates
 
 ***05/11/2021*** Models for [MoBY](https://github.com/SwinTransformer/Transformer-SSL) are released
