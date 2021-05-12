@@ -3,6 +3,7 @@
 This repo contains the supported code and configuration files to reproduce semantic segmentaion results of [Swin Transformer](https://arxiv.org/pdf/2103.14030.pdf). It is based on [mmsegmentaion](https://github.com/open-mmlab/mmsegmentation/tree/v0.11.0).
 
 ##Installation Steps:
+
 1.) git clone https://github.com/kartikwar/Swin-Transformer-Semantic-Segmentation.git
 2.) conda create -n transformer python=3.7
 3.) conda activate transformer
@@ -14,6 +15,7 @@ This repo contains the supported code and configuration files to reproduce seman
 9.) pip install git+https://github.com/rwightman/pytorch-image-models.git
 
 ##Steps for inference
+
 python inference.py
 
 ## Updates
