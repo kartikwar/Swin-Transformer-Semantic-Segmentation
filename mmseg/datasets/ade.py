@@ -79,6 +79,6 @@ class ADE20KDataset(CustomDataset):
     def __init__(self, **kwargs):
         super(ADE20KDataset, self).__init__(
             img_suffix='.jpg',
-            seg_map_suffix='.png',
+            seg_map_suffix='.jpg',
             reduce_zero_label=True,
             **kwargs)
