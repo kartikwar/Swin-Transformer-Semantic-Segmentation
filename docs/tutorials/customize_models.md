@@ -147,7 +147,7 @@ Next, the users need to add the module in the `mmseg/models/decode_heads/__init_
 To config file of PSPNet is as the following
 
 ```python
-norm_cfg = dict(type='SyncBN', requires_grad=True)
+norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
     pretrained='pretrain_model/resnet50_v1c_trick-2cccc1ad.pth',

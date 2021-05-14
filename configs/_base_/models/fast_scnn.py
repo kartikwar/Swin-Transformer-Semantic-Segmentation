@@ -1,5 +1,5 @@
 # model settings
-norm_cfg = dict(type='SyncBN', requires_grad=True, momentum=0.01)
+norm_cfg = dict(type='BN', requires_grad=True, momentum=0.01)
 model = dict(
     type='EncoderDecoder',
     backbone=dict(

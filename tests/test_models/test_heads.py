@@ -119,7 +119,7 @@ def test_fcn_head():
         in_channels=32,
         channels=16,
         num_classes=19,
-        norm_cfg=dict(type='SyncBN'))
+        norm_cfg=dict(type='BN'))
     for m in head.modules():
         if isinstance(m, ConvModule):
             assert m.with_norm and isinstance(m.bn, SyncBatchNorm)
@@ -208,7 +208,7 @@ def test_psp_head():
         in_channels=32,
         channels=16,
         num_classes=19,
-        norm_cfg=dict(type='SyncBN'))
+        norm_cfg=dict(type='BN'))
     assert _conv_has_norm(head, sync_bn=True)
 
     inputs = [torch.randn(1, 32, 45, 45)]
@@ -238,7 +238,7 @@ def test_apc_head():
         in_channels=32,
         channels=16,
         num_classes=19,
-        norm_cfg=dict(type='SyncBN'))
+        norm_cfg=dict(type='BN'))
     assert _conv_has_norm(head, sync_bn=True)
 
     # fusion=True
@@ -291,7 +291,7 @@ def test_dm_head():
         in_channels=32,
         channels=16,
         num_classes=19,
-        norm_cfg=dict(type='SyncBN'))
+        norm_cfg=dict(type='BN'))
     assert _conv_has_norm(head, sync_bn=True)
 
     # fusion=True
@@ -344,7 +344,7 @@ def test_aspp_head():
         in_channels=32,
         channels=16,
         num_classes=19,
-        norm_cfg=dict(type='SyncBN'))
+        norm_cfg=dict(type='BN'))
     assert _conv_has_norm(head, sync_bn=True)
 
     inputs = [torch.randn(1, 32, 45, 45)]
@@ -381,7 +381,7 @@ def test_psa_head():
         channels=16,
         num_classes=19,
         mask_size=(39, 39),
-        norm_cfg=dict(type='SyncBN'))
+        norm_cfg=dict(type='BN'))
     assert _conv_has_norm(head, sync_bn=True)
 
     # test 'bi-direction' psa_type
@@ -525,7 +525,7 @@ def test_uper_head():
         in_channels=[32, 16],
         channels=16,
         num_classes=19,
-        norm_cfg=dict(type='SyncBN'),
+        norm_cfg=dict(type='BN'),
         in_index=[-2, -1])
     assert _conv_has_norm(head, sync_bn=True)
 

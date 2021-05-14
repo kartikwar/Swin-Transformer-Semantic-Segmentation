@@ -43,7 +43,7 @@ we make brief comments on the config of PSPNet using ResNet50V1c as the followin
 For more detailed usage and the corresponding alternative for each modules, please refer to the API documentation.
 
 ```python
-norm_cfg = dict(type='SyncBN', requires_grad=True)  # Segmentation usually uses SyncBN
+norm_cfg = dict(type='BN', requires_grad=True)  # Segmentation usually uses BN
 model = dict(
     type='EncoderDecoder',  # Name of segmentor
     pretrained='open-mmlab://resnet50_v1c',  # The ImageNet pretrained backbone to be loaded
@@ -55,7 +55,7 @@ model = dict(
         dilations=(1, 1, 2, 4),  # The dilation rate of each layer.
         strides=(1, 2, 1, 1),  # The stride of each layer.
         norm_cfg=dict(  # The configuration of norm layer.
-            type='SyncBN',  # Type of norm layer. Usually it is SyncBN.
+            type='BN',  # Type of norm layer. Usually it is BN.
             requires_grad=True),   # Whether to train the gamma and beta in norm
         norm_eval=False,  # Whether to freeze the statistics in BN
         style='pytorch',  # The style of backbone, 'pytorch' means that stride 2 layers are in 3x3 conv, 'caffe' means stride 2 layers are in 1x1 convs.
@@ -68,7 +68,7 @@ model = dict(
         pool_scales=(1, 2, 3, 6),  # The avg pooling scales of PSPHead. Please refer to paper for details.
         dropout_ratio=0.1,  # The dropout ratio before final classification layer.
         num_classes=19,  # Number of segmentation classs. Usually 19 for cityscapes, 21 for VOC, 150 for ADE20k.
-        norm_cfg=dict(type='SyncBN', requires_grad=True),  # The configuration of norm layer.
+        norm_cfg=dict(type='BN', requires_grad=True),  # The configuration of norm layer.
         align_corners=False,  # The align_corners argument for resize in decoding.
         loss_decode=dict(  # Config of loss function for the decode_head.
             type='CrossEntropyLoss',  # Type of loss used for segmentation.
@@ -83,7 +83,7 @@ model = dict(
         concat_input=False,  # Whether concat output of convs with input before classification layer.
         dropout_ratio=0.1,  # The dropout ratio before final classification layer.
         num_classes=19,  # Number of segmentation classs. Usually 19 for cityscapes, 21 for VOC, 150 for ADE20k.
-        norm_cfg=dict(type='SyncBN', requires_grad=True),  # The configuration of norm layer.
+        norm_cfg=dict(type='BN', requires_grad=True),  # The configuration of norm layer.
         align_corners=False,  # The align_corners argument for resize in decoding.
         loss_decode=dict(  # Config of loss function for the decode_head.
             type='CrossEntropyLoss',  # Type of loss used for segmentation.
@@ -262,7 +262,7 @@ You may refer to [mmcv](https://mmcv.readthedocs.io/en/latest/utils.html#inherit
 In MMSegmentation, for example, to change the backbone of PSPNet with the following config.
 
 ```python
-norm_cfg = dict(type='SyncBN', requires_grad=True)
+norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='MaskRCNN',
     pretrained='torchvision://resnet50',
@@ -285,7 +285,7 @@ model = dict(
 
 ```python
 _base_ = '../pspnet/psp_r50_512x1024_40ki_cityscpaes.py'
-norm_cfg = dict(type='SyncBN', requires_grad=True)
+norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     pretrained='open-mmlab://msra/hrnetv2_w32',
     backbone=dict(
@@ -369,7 +369,7 @@ data = dict(
 
 We first define the new `train_pipeline`/`test_pipeline` and pass them into `data`.
 
-Similarly, if we would like to switch from `SyncBN` to `BN` or `MMSyncBN`, we need to substitute every `norm_cfg` in the config.
+Similarly, if we would like to switch from `BN` to `BN` or `MMBN`, we need to substitute every `norm_cfg` in the config.
 
 ```python
 _base_ = '../pspnet/psp_r50_512x1024_40ki_cityscpaes.py'
