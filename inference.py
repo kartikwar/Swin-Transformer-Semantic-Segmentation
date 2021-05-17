@@ -1,8 +1,8 @@
 from mmseg.apis import inference_segmentor, init_segmentor
 import mmcv
 
-config_file = 'configs/swin/saliency_swin_tiny.py'
-checkpoint_file = 'work_dirs/saliency_swin_tiny/iter_100.pth'
+config_file = 'configs/swin/saliency_swin_large.py'
+checkpoint_file = 'work_dirs/saliency_swin_large/iter_100.pth'
 
 # build the model from a config file and a checkpoint file
 model = init_segmentor(config_file, checkpoint_file, device='cuda:0')
