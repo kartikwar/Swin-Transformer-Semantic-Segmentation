@@ -62,6 +62,7 @@ def parse_args():
 
 def main():
     args = parse_args()
+    
 
     cfg = Config.fromfile(args.config)
     if args.options is not None:
@@ -132,7 +133,7 @@ def main():
         train_cfg=cfg.get('train_cfg'),
         test_cfg=cfg.get('test_cfg'))
 
-    logger.info(model)
+    # logger.info(model)
 
     datasets = [build_dataset(cfg.data.train)]
     if len(cfg.workflow) == 2:
