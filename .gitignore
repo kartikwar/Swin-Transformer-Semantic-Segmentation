@@ -6,6 +6,9 @@ __pycache__/
 # wheel files
 *.whl
 
+#nohup files
+*.out
+
 # C extensions
 *.so
 
