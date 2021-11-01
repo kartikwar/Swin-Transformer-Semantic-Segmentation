@@ -26,6 +26,16 @@ This repo contains the supported code and configuration files to reproduce seman
 
 python inference.py
 
+## Steps for training:
+
+1.) copy data in correct folders. (for ex data/ade/ADEChallengeData2016)
+
+2.) python parse_trained_model.py
+
+3.) for single gpu training : (currently multi gpu is not working)
+
+bash -u train.sh
+
 ## Updates
 
 ***05/11/2021*** Models for [MoBY](https://github.com/SwinTransformer/Transformer-SSL) are released

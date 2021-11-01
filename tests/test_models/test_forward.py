@@ -186,7 +186,7 @@ def _check_input_dim(self, inputs):
 def _convert_batchnorm(module):
     module_output = module
     if isinstance(module, SyncBatchNorm):
-        # to be consistent with SyncBN, we hack dim check function in BN
+        # to be consistent with BN, we hack dim check function in BN
         module_output = _BatchNorm(module.num_features, module.eps,
                                    module.momentum, module.affine,
                                    module.track_running_stats)

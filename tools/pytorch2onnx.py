@@ -184,7 +184,7 @@ if __name__ == '__main__':
     cfg.model.train_cfg = None
     segmentor = build_segmentor(
         cfg.model, train_cfg=None, test_cfg=cfg.get('test_cfg'))
-    # convert SyncBN to BN
+    # convert BN to BN
     segmentor = _convert_batchnorm(segmentor)
 
     if args.checkpoint:

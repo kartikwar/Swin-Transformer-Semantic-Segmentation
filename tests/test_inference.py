@@ -11,7 +11,7 @@ def test_test_time_augmentation_on_cpu():
 
     # Remove pretrain model download for testing
     config.model.pretrained = None
-    # Replace SyncBN with BN to inference on CPU
+    # Replace BN with BN to inference on CPU
     norm_cfg = dict(type='BN', requires_grad=True)
     config.model.backbone.norm_cfg = norm_cfg
     config.model.decode_head.norm_cfg = norm_cfg

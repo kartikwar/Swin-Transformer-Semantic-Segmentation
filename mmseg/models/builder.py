@@ -30,6 +30,7 @@ def build(cfg, registry, default_args=None):
         ]
         return nn.Sequential(*modules)
     else:
+        temp = 0
         return build_from_cfg(cfg, registry, default_args)
 
 

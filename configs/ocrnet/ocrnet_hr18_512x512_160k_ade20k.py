@@ -2,7 +2,7 @@ _base_ = [
     '../_base_/models/ocrnet_hr18.py', '../_base_/datasets/ade20k.py',
     '../_base_/default_runtime.py', '../_base_/schedules/schedule_160k.py'
 ]
-norm_cfg = dict(type='SyncBN', requires_grad=True)
+norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(decode_head=[
     dict(
         type='FCNHead',
